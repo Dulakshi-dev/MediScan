@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 
+import Link from "next/link";
+
 interface AnalyzedValue {
   test_name: string;
   value: string;
@@ -90,7 +92,7 @@ export default function Home() {
 
     try {
       const reportContext = result.analysis.analyzed_values
-        .map(v => `${v.test_name}: ${v.value} ${v.unit} (${v.status})`)
+        .map((v) => `${v.test_name}: ${v.value} ${v.unit} (${v.status})`)
         .join(", ");
 
       const response = await fetch("http://127.0.0.1:8000/ask", {
@@ -114,15 +116,18 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-3xl mx-auto">
-
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-semibold text-gray-900 mb-2">
-            MediRAG
-          </h1>
+          <h1 className="text-3xl font-semibold text-gray-900 mb-2">MediRAG</h1>
           <p className="text-gray-500 text-sm">
             Upload your medical report and get a plain English explanation
           </p>
+          <Link
+            href="/history"
+            className="text-xs text-gray-400 hover:text-gray-600 underline mt-2 inline-block"
+          >
+            View report history
+          </Link>
         </div>
 
         {/* Upload */}
@@ -149,7 +154,9 @@ export default function Home() {
                 disabled={loading}
                 className="bg-gray-900 text-white text-sm px-6 py-2 rounded-lg hover:bg-gray-700 disabled:opacity-50 transition-colors"
               >
-                {loading ? "Analyzing... (this takes ~30 seconds)" : "Analyze Report"}
+                {loading
+                  ? "Analyzing... (this takes ~30 seconds)"
+                  : "Analyze Report"}
               </button>
             </div>
           )}
@@ -165,7 +172,6 @@ export default function Home() {
         {/* Results */}
         {result && (
           <div className="space-y-6">
-
             {/* Summary */}
             <div className="bg-white rounded-2xl border border-gray-200 p-6">
               <h2 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">
@@ -209,8 +215,12 @@ export default function Home() {
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <span className={`w-2 h-2 rounded-full ${statusDot[item.status]}`} />
-                        <span className="font-medium text-sm">{item.test_name}</span>
+                        <span
+                          className={`w-2 h-2 rounded-full ${statusDot[item.status]}`}
+                        />
+                        <span className="font-medium text-sm">
+                          {item.test_name}
+                        </span>
                       </div>
                       <span className="text-sm font-semibold">
                         {item.value} {item.unit}
@@ -234,7 +244,9 @@ export default function Home() {
                 <ul className="space-y-2">
                   {result.analysis.doctor_questions.map((q, i) => (
                     <li key={i} className="flex gap-2 text-sm text-gray-700">
-                      <span className="text-gray-400 flex-shrink-0">{i + 1}.</span>
+                      <span className="text-gray-400 flex-shrink-0">
+                        {i + 1}.
+                      </span>
                       {q}
                     </li>
                   ))}
@@ -266,11 +278,12 @@ export default function Home() {
               </div>
               {answer && (
                 <div className="mt-4 bg-gray-50 rounded-xl p-4">
-                  <p className="text-sm text-gray-700 leading-relaxed">{answer}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    {answer}
+                  </p>
                 </div>
               )}
             </div>
-
           </div>
         )}
       </div>
