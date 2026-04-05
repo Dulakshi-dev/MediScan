@@ -1,0 +1,39 @@
+Hemoglobin is a protein in red blood cells that carries oxygen. Normal range for adult males is 13.0-17.0 g/dL and for adult females is 12.0-15.0 g/dL. Low hemoglobin indicates anemia which can cause fatigue, weakness, and shortness of breath. High hemoglobin may indicate dehydration or polycythemia.
+
+RBC Count measures the number of red blood cells per cubic millimeter of blood. Normal range is 4.5-5.5 million/cmm for males and 4.0-5.0 million/cmm for females. Low RBC indicates anemia. High RBC may indicate dehydration or bone marrow disorders.
+
+WBC Count measures white blood cells which fight infection. Normal range is 4000-10000 per cmm. High WBC (leukocytosis) often indicates infection, inflammation, or immune disorders. Low WBC (leukopenia) may indicate bone marrow problems or autoimmune conditions.
+
+Neutrophils are the most common white blood cells and first responders to infection. Normal range is 40-80%. High neutrophils suggest bacterial infection. Low neutrophils increase infection risk.
+
+Lymphocytes are white blood cells involved in immune response. Normal range is 20-40%. High lymphocytes suggest viral infection. Low lymphocytes may indicate immune deficiency.
+
+Platelet Count measures cells that help blood clot. Normal range is 150000-400000 per cmm. Low platelets (thrombocytopenia) increases bleeding risk. High platelets may indicate inflammation or iron deficiency.
+
+Glucose measures blood sugar levels. Fasting normal range is 70-99 mg/dL. Prediabetes is 100-125 mg/dL. Diabetes is 126 mg/dL or above. High glucose indicates diabetes or prediabetes. Low glucose indicates hypoglycemia.
+
+HbA1c measures average blood sugar over 3 months. Normal is below 5.7%. Prediabetes is 5.7-6.4%. Diabetes is 6.5% or above. This test is used to diagnose and monitor diabetes management.
+
+Creatinine measures kidney function. Normal range is 0.7-1.2 mg/dL for males and 0.5-1.0 mg/dL for females. High creatinine indicates impaired kidney function. Used alongside eGFR to assess kidney health.
+
+ALT (Alanine Aminotransferase) is a liver enzyme. Normal range is 7-56 U/L. High ALT indicates liver damage or disease. Causes include hepatitis, fatty liver, medications, and alcohol use.
+
+AST (Aspartate Aminotransferase) is found in liver and heart. Normal range is 10-40 U/L. High AST alongside high ALT strongly suggests liver disease.
+
+Cholesterol total normal is below 200 mg/dL. Borderline high is 200-239 mg/dL. High is 240 mg/dL and above. High cholesterol increases risk of heart disease and stroke.
+
+HDL cholesterol is the good cholesterol. Normal is above 40 mg/dL for males and above 50 mg/dL for females. Higher HDL is protective against heart disease.
+
+LDL cholesterol is the bad cholesterol. Optimal is below 100 mg/dL. High LDL increases risk of arterial plaque and heart disease.
+
+TSH (Thyroid Stimulating Hormone) measures thyroid function. Normal range is 0.4-4.0 mIU/mL. High TSH indicates hypothyroidism. Low TSH indicates hyperthyroidism.
+
+Vitamin D normal range is 30-100 ng/mL. Deficiency is below 20 ng/mL. Low vitamin D is linked to bone weakness, immune dysfunction, and depression.
+
+Vitamin B12 normal range is 200-900 pg/mL. Deficiency causes anemia, nerve damage, and cognitive issues. Common in vegetarians and elderly people.
+
+ESR (Erythrocyte Sedimentation Rate) measures inflammation. Normal for males is 0-15 mm/hr and females 0-20 mm/hr. High ESR indicates inflammation, infection, or autoimmune disease.
+
+CRP (C-Reactive Protein) measures acute inflammation. Normal is below 1 mg/L. High CRP indicates active infection or inflammation in the body.
+
+Uric Acid normal range is 3.5-7.2 mg/dL for males and 2.6-6.0 mg/dL for females. High uric acid causes gout and kidney stones.

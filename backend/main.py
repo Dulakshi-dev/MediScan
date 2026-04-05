@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import UploadFile, File
 from pdf_extractor import process_medical_report
+from rag_engine import retrieve_context
 
 app = FastAPI(title="MediRAG API")
 
@@ -29,3 +30,8 @@ async def extract(file: UploadFile = File(...)):
         "extracted_values": result["extracted_values"][:10],
         "total_values_found": len(result["extracted_values"])
     }
+
+@app.get("/retrieve")
+def retrieve(query: str):
+    context = retrieve_context(query)
+    return {"query": query, "context": context}
