@@ -8,6 +8,8 @@ from pdf_extractor import process_medical_report
 from analyzer import analyze_report
 from rag_engine import retrieve_context
 from groq import Groq
+from contextlib import asynccontextmanager
+from rag_engine import load_knowledge_base
 
 load_dotenv()
 print("URL:", os.getenv("SUPABASE_URL"))
@@ -18,7 +20,14 @@ supabase = create_client(
     os.getenv("SUPABASE_KEY")
 )
 
-app = FastAPI(title="MediRAG API")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("Building knowledge base on startup...")
+    load_knowledge_base()
+    print("Knowledge base ready!")
+    yield
+
+app = FastAPI(title="MediRAG API", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
