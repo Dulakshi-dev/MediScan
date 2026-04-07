@@ -35,7 +35,7 @@ export default function History() {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/analyze`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/reports`)
       .then((res) => res.json())
       .then((data) => {
         setReports(data.reports || []);
@@ -47,7 +47,6 @@ export default function History() {
   return (
     <main className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-3xl mx-auto">
-
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-2xl font-semibold text-gray-900">
@@ -142,7 +141,9 @@ export default function History() {
                     >
                       <div className="flex items-center justify-between mb-1">
                         <div className="flex items-center gap-2">
-                          <span className={`w-2 h-2 rounded-full ${statusDot[item.status] || statusDot.unknown}`} />
+                          <span
+                            className={`w-2 h-2 rounded-full ${statusDot[item.status] || statusDot.unknown}`}
+                          />
                           <span className="font-medium text-sm">
                             {item.test_name}
                           </span>
@@ -165,8 +166,13 @@ export default function History() {
                       </p>
                       <ul className="space-y-1">
                         {report.doctor_questions.map((q: string, i: number) => (
-                          <li key={i} className="flex gap-2 text-sm text-gray-700">
-                            <span className="text-gray-400 flex-shrink-0">{i + 1}.</span>
+                          <li
+                            key={i}
+                            className="flex gap-2 text-sm text-gray-700"
+                          >
+                            <span className="text-gray-400 flex-shrink-0">
+                              {i + 1}.
+                            </span>
                             {q}
                           </li>
                         ))}

@@ -118,7 +118,7 @@ export default function Home() {
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-semibold text-gray-900 mb-2">MediRAG</h1>
+          <h1 className="text-3xl font-semibold text-gray-900 mb-2">MediScan</h1>
           <p className="text-gray-500 text-sm">
             Upload your medical report and get a plain English explanation
           </p>
