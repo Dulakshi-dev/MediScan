@@ -71,7 +71,7 @@ export default function Home() {
       const formData = new FormData();
       formData.append("file", file);
 
-      const response = await fetch("http://127.0.0.1:8000/analyze", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/analyze`, {
         method: "POST",
         body: formData,
       });
@@ -95,7 +95,7 @@ export default function Home() {
         .map((v) => `${v.test_name}: ${v.value} ${v.unit} (${v.status})`)
         .join(", ");
 
-      const response = await fetch("http://127.0.0.1:8000/ask", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -35,7 +35,7 @@ export default function History() {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/reports")
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/analyze`)
       .then((res) => res.json())
       .then((data) => {
         setReports(data.reports || []);
