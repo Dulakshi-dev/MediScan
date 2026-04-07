@@ -265,7 +265,7 @@ export default function Home() {
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
                   placeholder="e.g. Should I be worried about my WBC count?"
-                  className="flex-1 border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-gray-400"
+                  className="flex-1 border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-gray-400 text-black"
                   onKeyDown={(e) => e.key === "Enter" && handleAskQuestion()}
                 />
                 <button
