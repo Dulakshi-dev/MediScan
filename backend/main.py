@@ -12,8 +12,6 @@ from contextlib import asynccontextmanager
 from rag_engine import load_knowledge_base
 
 load_dotenv()
-print("URL:", os.getenv("SUPABASE_URL"))
-print("KEY:", os.getenv("SUPABASE_KEY")[:20] if os.getenv("SUPABASE_KEY") else "None")
 
 supabase = create_client(
     os.getenv("SUPABASE_URL"),
@@ -71,6 +69,11 @@ def get_report(report_id: str):
 async def analyze(file: UploadFile = File(...)):
     contents = await file.read()
     extracted = process_medical_report(contents)
+
+    print("=== EXTRACTED VALUES ===")
+    for v in extracted["extracted_values"]:
+        print(v)
+    print(f"=== TOTAL: {len(extracted['extracted_values'])} ===")
 
     # Validate it's actually a medical report
     if not is_medical_report(extracted["raw_text"]):
