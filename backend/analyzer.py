@@ -10,12 +10,19 @@ client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 MODEL = "llama-3.1-8b-instant"
 
 def analyze_all_values(extracted_values: list) -> list:
-    test_names = ", ".join([v["test_name"] for v in extracted_values[:15]])
+    all_analyzed = []
+    for i in range(0, len(extracted_values), 15):
+        batch = extracted_values[i:i + 15]
+        all_analyzed.extend(analyze_batch(batch))
+    return all_analyzed
+
+def analyze_batch(extracted_values: list) -> list:
+    test_names = ", ".join([v["test_name"] for v in extracted_values])
     context = retrieve_context(f"Normal ranges and clinical significance of {test_names}")
 
     values_text = "\n".join([
-        f"- {v['test_name']}: {v['value']} {v['unit']} (reference: {v.get('reference_range', 'N/A')})"
-        for v in extracted_values[:15]
+        f"- {v['test_name']}: {v['value']} {v['unit']} (reference: {v.get('reference_range', 'N/A')}, flag: {v.get('flag') or 'none'})"
+        for v in extracted_values
     ])
 
     prompt = f"""You are a medical report analyzer. Analyze these lab results and respond ONLY with a valid JSON array. No explanation, no markdown, just the JSON array.
@@ -23,8 +30,10 @@ def analyze_all_values(extracted_values: list) -> list:
 Medical Knowledge Context:
 {context}
 
-Lab Results:
+Lab Results (flag=HIGH/LOW means the lab itself marked it abnormal):
 {values_text}
+
+Important: Never classify a flagged value as "normal".
 
 Respond with exactly this JSON array, one object per test:
 [

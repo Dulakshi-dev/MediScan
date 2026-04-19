@@ -4,7 +4,7 @@ from pydantic import BaseModel
 import os
 from dotenv import load_dotenv
 from supabase import create_client
-from pdf_extractor import process_medical_report
+from pdf_extractor import process_medical_report, is_medical_report
 from analyzer import analyze_report
 from rag_engine import retrieve_context
 from groq import Groq
@@ -70,13 +70,17 @@ def get_report(report_id: str):
 @app.post("/analyze")
 async def analyze(file: UploadFile = File(...)):
     contents = await file.read()
-
     extracted = process_medical_report(contents)
+
+    # Validate it's actually a medical report
+    if not is_medical_report(extracted["raw_text"]):
+        return {
+            "error": "This does not appear to be a medical report. Please upload a lab report or blood test result."
+        }
 
     if not extracted["extracted_values"]:
         return {
-            "error": "No medical values found in this PDF",
-            "raw_text_preview": extracted["raw_text"][:300]
+            "error": "No medical values found in this PDF."
         }
 
     analysis = analyze_report(extracted["extracted_values"])
